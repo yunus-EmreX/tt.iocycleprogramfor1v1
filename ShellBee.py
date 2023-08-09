@@ -8,7 +8,7 @@ class KeyboardSimulator:
         self.master = master
         self.master.title("Keyboard Simulator")
 
-        self.cycle_labels = ["Cycle 1", "Cycle 2", "Cycle 3", "Cycle 4"]
+        self.cycle_labels = ["Cycle 1", "Cycle 2", "Cycle 3", "Cycle 4", "Cycle 5"]
         self.cycle_entries = []
         self.delay_entries = []
 
@@ -17,7 +17,7 @@ class KeyboardSimulator:
         self.create_ui()
 
     def create_ui(self):
-        for i in range(4):
+        for i in range(5):  # Toplam 5 döngü olacak
             cycle_label = tk.Label(self.master, text=self.cycle_labels[i])
             cycle_label.grid(row=i, column=0, padx=10, pady=5, sticky="e")
 
@@ -33,7 +33,7 @@ class KeyboardSimulator:
             self.delay_entries.append(delay_entry)
 
         start_button = tk.Button(self.master, text="Start", command=self.start_simulation)
-        start_button.grid(row=4, columnspan=4, padx=10, pady=10)
+        start_button.grid(row=5, columnspan=4, padx=10, pady=10)  # Düğme konumunu güncelledik
 
     def simulate_keystrokes(self, keystrokes, delay):
         time.sleep(delay)
@@ -45,7 +45,7 @@ class KeyboardSimulator:
         time.sleep(1)  # Pause between cycles
 
     def start_simulation(self):
-        for i in range(4):
+        for i in range(5):
             cycle_text = self.cycle_entries[i].get()
             delay_text = self.delay_entries[i].get()
             if cycle_text and delay_text:
